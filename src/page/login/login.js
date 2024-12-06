@@ -2,13 +2,13 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
@@ -19,7 +19,7 @@ const Login = () => {
         try {
             const response = await axios.post(
                 "https://dummyapicsi.onrender.com/api/login",
-                { username: username, password: password }
+                { email: email, password: password }
             );
             console.log("successful login", response);
             setMessage(response.data.message);
@@ -36,8 +36,8 @@ const Login = () => {
                 <label>Username</label>
                 <input 
                     type="text" 
-                    value={username} 
-                    onChange={handleUsernameChange} 
+                    value={email} 
+                    onChange={handleEmailChange} 
                 />
             </div>
 
@@ -52,8 +52,7 @@ const Login = () => {
 
             <button onClick={loginPressed}>Login</button>
 
-            {error && <div className="error">{error}</div>}
-            {message && <div className="message">{message}</div>}
+          
         </div>
     );
 };
