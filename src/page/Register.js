@@ -69,7 +69,7 @@ const Register = () => {
             </div>
             <div>
                 <button onClick={signinPressed}>Sign In</button> 
-                <Link to="/Register">Don't have an account? </Link>
+                <Link to="/login">Don't have an account? </Link>
             </div>
 
           
