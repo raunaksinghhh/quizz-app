@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate(); 
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -22,24 +22,9 @@ const Register = () => {
                 { username: username, password: password }
             );
             console.log("successful registration", response);
-
+            navigate('/Quection'); 
         } catch (err) {
-
-            
-        }
-    };
-
-    const signinPressed = async () => {
-        try {
-            const response = await axios.post(
-                "https://dummyapicsi.onrender.com/api/login",
-                { username: username, password: password }
-            );
-            console.log("successful login", response);
-
-        } catch (err) {
-            console.error("error logging in", err);
-            
+            console.error("error registering", err);
         }
     };
 
@@ -65,14 +50,11 @@ const Register = () => {
                 />
             </div>
             <div>
-            <button onClick={registerPressed}>Register</button>
+                <button onClick={registerPressed}>Register</button>
             </div>
             <div>
-                <button onClick={signinPressed}>Sign In</button> 
                 <Link to="/login">Don't have an account? </Link>
             </div>
-
-          
         </div>
     );
 };
