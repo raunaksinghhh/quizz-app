@@ -22,6 +22,7 @@ const Register = () => {
                 { username: username, password: password }
             );
             console.log("successful registration", response);
+            if(response.data.message==="successful registration")
             navigate('/Quection'); 
         } catch (err) {
             console.error("error registering", err);
