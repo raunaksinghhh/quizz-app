@@ -37,6 +37,7 @@ const Register = () => {
                 <input 
                     type="text" 
                     value={username} 
+                    placeholder="username"
                     onChange={handleUsernameChange} 
                 />
             </div>
@@ -52,6 +53,7 @@ const Register = () => {
             </div>
             <div>
                 <button onClick={registerPressed}>Register</button>
+                <Link to="/Quection"></Link>
             </div>
             <div>
                 <Link to="/login">Don't have an account? </Link>
